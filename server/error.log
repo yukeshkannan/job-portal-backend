@@ -1,0 +1,29 @@
+Error (2025-12-12T10:17:42.229Z): TypeError: pdf is not a function
+    at exports.analyzeResume (E:\JOB BOARD\server\controllers\candidateController.js:84:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Error (2025-12-12T10:18:01.674Z): TypeError: pdf is not a function
+    at exports.analyzeResume (E:\JOB BOARD\server\controllers\candidateController.js:84:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Error (2025-12-12T10:21:53.500Z): TypeError: Class constructors cannot be invoked without 'new'
+    at exports.analyzeResume (E:\JOB BOARD\server\controllers\candidateController.js:91:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Error (2025-12-12T10:23:23.611Z): TypeError: Class constructors cannot be invoked without 'new'
+    at exports.analyzeResume (E:\JOB BOARD\server\controllers\candidateController.js:91:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Error (2025-12-12T10:24:05.159Z): TypeError: Class constructors cannot be invoked without 'new'
+    at exports.analyzeResume (E:\JOB BOARD\server\controllers\candidateController.js:91:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Error (2025-12-12T10:35:13.481Z): Error: EBUSY: resource busy or locked, unlink 'E:\JOB BOARD\server\uploads\resume-1765535712869.pdf'
+    at Object.unlinkSync (node:fs:1942:11)
+    at exports.analyzeResume (E:\JOB BOARD\server\controllers\candidateController.js:89:12)
+Error (2025-12-13T05:29:21.929Z): Error: ENOENT: no such file or directory, open 'E:\JOB BOARD\server\test\data\05-versions-space.pdf'
+    at Object.openSync (node:fs:560:18)
+    at Object.readFileSync (node:fs:444:35)
+    at Object.<anonymous> (E:\JOB BOARD\server\node_modules\pdf-parse\index.js:15:25)
+    at Module._compile (node:internal/modules/cjs/loader:1760:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1480:32)
+    at Module._load (node:internal/modules/cjs/loader:1299:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at cjsLoader (node:internal/modules/esm/translators:342:5)

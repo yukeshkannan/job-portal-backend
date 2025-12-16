@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Core Colors - Modern Minimalist (Clean Tech) */
+  --bg-dark: #fafafa;
+  /* Zinc 50 - Very subtle off-white for depth */
+  --bg-card: #ffffff;
+  /* Pure White */
+
+  --text-primary: #18181b;
+  /* Zinc 900 - Sharp Black */
+  --text-secondary: #71717a;
+  /* Zinc 500 - Neutral Gray */
+
+  --primary: #2563eb;
+  /* Royal Blue - The "Pop" Color */
+  --primary-hover: #1d4ed8;
+  /* Darker Blue */
+  --accent: #000000;
+  /* Black Accent */
+
+  --success: #10b981;
+  --error: #ef4444;
+  --input-bg: #ffffff;
+
+  /* Glassmorphism / Card Styles (Clean & Flat) */
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: #e4e4e7;
+  /* Zinc 200 - Sharp borders */
+  --glass-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  /* Subtle shadow */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  /* Now Slate 50 */
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+  /* Prevents I-beam cursor everywhere */
+  user-select: none;
+  /* Optional: prevents text selection highlighting if desired, but maybe too aggressive for a job board? Let's stick to cursor:default and maybe standard selection */
+  caret-color: transparent;
+  /* Hides blinking cursor on text clicks */
+}
+
+/* Re-enable text cursor for inputs and selectable text areas */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+  user-select: text;
+  caret-color: var(--text-primary);
+  /* Restore blinking cursor here */
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  cursor: text;
+  /* Allow text selection on content */
+  user-select: text;
+  caret-color: transparent;
+  /* Ensure no caret on text selection */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-primary);
+  /* Changed from white to variable */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--bg-card);
+  /* Less transparency, solid white for professional card look */
+  border: 1px solid #e2e8f0;
+  /* Slate 200 */
+  box-shadow: var(--glass-shadow);
+  border-radius: 12px;
+  /* Slightly sharper */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.3s ease;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+  /* Subtle Blue shadow */
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  /* Slate 300 */
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(79, 70, 229, 0.05);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Form Elements */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 1px solid #cbd5e1;
+  /* Slate 300 */
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  /* Darker gray */
+}

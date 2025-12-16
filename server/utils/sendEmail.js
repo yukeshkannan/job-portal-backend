@@ -1,13 +1,6 @@
-const nodemailer = require('nodemailer');
+const axios = require('axios');
 
 const sendEmail = async (options) => {
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com', 
-        port: 587, // STARTTLS
-        secure: false,
-        auth: {
-            user: process.env.SMTP_EMAIL,
     // 1. Try Brevo (Sendinblue) API - Bypasses SMTP Port Blocking
     if (process.env.BREVO_API_KEY) {
         try {

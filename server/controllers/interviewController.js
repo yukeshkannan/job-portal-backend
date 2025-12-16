@@ -68,8 +68,8 @@ exports.getInterviews = async (req, res, next) => {
     try {
         let query;
 
-        if (req.user.role === 'recruiter') {
-            // Recruiter sees interviews they scheduled
+        if (req.user.role === 'recruiter' || req.user.role === 'admin') {
+            // Recruiter/Admin sees interviews they scheduled
             query = { interviewerId: req.user.id };
         } else {
             // Candidate sees interviews scheduled for them

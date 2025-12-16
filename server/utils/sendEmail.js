@@ -8,37 +8,44 @@ const sendEmail = async (options) => {
         secure: false,
         auth: {
             user: process.env.SMTP_EMAIL,
-            pass: process.env.SMTP_PASSWORD
-        },
-        logger: true,
-        debug: true,
-        connectionTimeout: 10000, 
-        greetingTimeout: 5000,
-        // Force IPv4 as some cloud providers have IPv6 routing issues
-        tls: {
-            rejectUnauthorized: false
+    // 1. Try Brevo (Sendinblue) API - Bypasses SMTP Port Blocking
+    if (process.env.BREVO_API_KEY) {
+        try {
+            const response = await axios.post(
+                'https://api.brevo.com/v3/smtp/email',
+                {
+                    sender: { 
+                        name: process.env.FROM_NAME || 'NextHire Admin', 
+                        email: process.env.SMTP_EMAIL 
+                    },
+                    to: [{ email: options.email }],
+                    subject: options.subject,
+                    htmlContent: options.message,
+                },
+                {
+                    headers: {
+                        'api-key': process.env.BREVO_API_KEY,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                }
+            );
+            console.log('✅ Email sent via Brevo API');
+            return;
+        } catch (error) {
+            console.error('❌ Brevo API Failed:', error.response?.data || error.message);
+            // Continue to Fallback Logger...
         }
-    });
+    }
 
-    // Define email options
-    const message = {
-        from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
-        to: options.email,
-        subject: options.subject,
-        html: options.message
-    };
-
-    try {
-        const info = await transporter.sendMail(message);
-        console.log('✅ Email sent: %s', info.messageId);
-    } catch (error) {
-        console.error('❌ Email Send Failed (Network Block by Render):', error.message);
-        console.log('\n================ FALLBACK EMAIL LOG ================');
-        console.log('TO: ', options.email);
-        console.log('SUBJECT: ', options.subject);
-        console.log('MESSAGE: \n', options.message);
-        console.log('====================================================\n');
-        // Do not throw error so the UI request succeeds
+    // 2. Fallback Logger (If API Key missing or fails)
+    console.log('\n================ FALLBACK EMAIL LOG ================');
+    console.log('TO: ', options.email);
+    console.log('SUBJECT: ', options.subject);
+    console.log('MESSAGE: \n', options.message);
+    console.log('====================================================\n');
+    if (!process.env.BREVO_API_KEY) {
+        console.log('ℹ️ Tip: Add BREVO_API_KEY in Render to send real emails.');
     }
 };
 

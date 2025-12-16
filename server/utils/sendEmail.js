@@ -20,6 +20,14 @@ const sendEmail = async (options) => {
         }
     });
 
+    // Define email options
+    const message = {
+        from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
+        to: options.email,
+        subject: options.subject,
+        html: options.message
+    };
+
     try {
         const info = await transporter.sendMail(message);
         console.log('✅ Email sent: %s', info.messageId);

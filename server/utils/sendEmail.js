@@ -9,7 +9,12 @@ const sendEmail = async (options) => {
         auth: {
             user: process.env.SMTP_EMAIL,
             pass: process.env.SMTP_PASSWORD
-        }
+        },
+        logger: true,
+        debug: true, // Show details in logs
+        connectionTimeout: 10000, // 10s
+        greetingTimeout: 5000, // 5s
+        socketTimeout: 10000 // 10s
     });
 
     // Define email options

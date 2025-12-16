@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
-import { ArrowLeft, Upload, CheckCircle, FileText, Briefcase, MapPin } from 'lucide-react';
+import { ArrowLeft, Upload, CheckCircle, FileText, Briefcase, MapPin, Star } from 'lucide-react';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { useToast } from '../context/ToastContext';
 

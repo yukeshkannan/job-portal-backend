@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Briefcase, Github, Twitter, Linkedin, Heart } from 'lucide-react';
+import { Briefcase, Github, Linkedin, Heart } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -18,7 +18,7 @@ const Footer = () => {
                 <div className="footer-section links">
                     <h4>Platform</h4>
                     <Link to="/">Home</Link>
-                    <Link to="/jobs">Browse Jobs</Link>
+
                     <Link to="/login">Login</Link>
                     <Link to="/register">Sign Up</Link>
                 </div>
@@ -28,9 +28,8 @@ const Footer = () => {
                 <div className="footer-section social">
                     <h4>Connect</h4>
                     <div className="social-icons">
-                        <a href="#" className="icon-link"><Github size={20} /></a>
-                        <a href="#" className="icon-link"><Twitter size={20} /></a>
-                        <a href="#" className="icon-link"><Linkedin size={20} /></a>
+                        <a href="https://github.com/yukeshkannan" target="_blank" rel="noopener noreferrer" className="icon-link"><Github size={20} /></a>
+                        <a href="https://www.linkedin.com/in/yukeshgowthaman/" target="_blank" rel="noopener noreferrer" className="icon-link"><Linkedin size={20} /></a>
                     </div>
                 </div>
             </div>
